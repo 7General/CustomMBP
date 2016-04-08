@@ -18,6 +18,9 @@
 		25097C511CB79D7300F7FAF4 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25097C501CB79D7300F7FAF4 /* MainViewController.m */; };
 		25097C751CB7A5C000F7FAF4 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25097C721CB7A5C000F7FAF4 /* UIView+Additions.m */; };
 		25097C761CB7A5C000F7FAF4 /* UIView+UIViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 25097C731CB7A5C000F7FAF4 /* UIView+UIViewUtils.m */; };
+		25097C7F1CB7AD9200F7FAF4 /* ConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25097C7C1CB7AD9200F7FAF4 /* ConfigManager.m */; };
+		25097C801CB7AD9200F7FAF4 /* HZHttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 25097C7E1CB7AD9200F7FAF4 /* HZHttpHelper.m */; };
+		25097C821CB7B41700F7FAF4 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 25097C811CB7B41700F7FAF4 /* MBProgressHUD.bundle */; };
 		F548FA18F978C2EF7310613F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE401C92CD8CA076CBC53592 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +65,11 @@
 		25097C721CB7A5C000F7FAF4 /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
 		25097C731CB7A5C000F7FAF4 /* UIView+UIViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIViewUtils.m"; sourceTree = "<group>"; };
 		25097C741CB7A5C000F7FAF4 /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
+		25097C7B1CB7AD9200F7FAF4 /* ConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigManager.h; sourceTree = "<group>"; };
+		25097C7C1CB7AD9200F7FAF4 /* ConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigManager.m; sourceTree = "<group>"; };
+		25097C7D1CB7AD9200F7FAF4 /* HZHttpHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZHttpHelper.h; sourceTree = "<group>"; };
+		25097C7E1CB7AD9200F7FAF4 /* HZHttpHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZHttpHelper.m; sourceTree = "<group>"; };
+		25097C811CB7B41700F7FAF4 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		3EE379A63C324CBF564815AE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D4D2DD211F6CFEFA3B0AAF54 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DE401C92CD8CA076CBC53592 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +126,7 @@
 		25097C171CB79CF000F7FAF4 /* HZProgress */ = {
 			isa = PBXGroup;
 			children = (
+				25097C771CB7AD2E00F7FAF4 /* Other */,
 				25097C531CB79E2D00F7FAF4 /* ThirdParty */,
 				25097C4E1CB79D4D00F7FAF4 /* CutomView */,
 				25097C4C1CB79D3700F7FAF4 /* Main */,
@@ -188,12 +197,24 @@
 		25097C531CB79E2D00F7FAF4 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				25097C811CB7B41700F7FAF4 /* MBProgressHUD.bundle */,
 				25097C711CB7A5C000F7FAF4 /* UIView+UIViewUtils.h */,
 				25097C731CB7A5C000F7FAF4 /* UIView+UIViewUtils.m */,
 				25097C741CB7A5C000F7FAF4 /* UIView+Additions.h */,
 				25097C721CB7A5C000F7FAF4 /* UIView+Additions.m */,
 			);
 			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		25097C771CB7AD2E00F7FAF4 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				25097C7B1CB7AD9200F7FAF4 /* ConfigManager.h */,
+				25097C7C1CB7AD9200F7FAF4 /* ConfigManager.m */,
+				25097C7D1CB7AD9200F7FAF4 /* HZHttpHelper.h */,
+				25097C7E1CB7AD9200F7FAF4 /* HZHttpHelper.m */,
+			);
+			name = Other;
 			sourceTree = "<group>";
 		};
 		BDB0FFEF0496A77747290416 /* Pods */ = {
@@ -320,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25097C281CB79CF000F7FAF4 /* LaunchScreen.storyboard in Resources */,
+				25097C821CB7B41700F7FAF4 /* MBProgressHUD.bundle in Resources */,
 				25097C251CB79CF000F7FAF4 /* Assets.xcassets in Resources */,
 				25097C231CB79CF000F7FAF4 /* Main.storyboard in Resources */,
 			);
@@ -396,6 +418,8 @@
 			files = (
 				25097C761CB7A5C000F7FAF4 /* UIView+UIViewUtils.m in Sources */,
 				25097C751CB7A5C000F7FAF4 /* UIView+Additions.m in Sources */,
+				25097C7F1CB7AD9200F7FAF4 /* ConfigManager.m in Sources */,
+				25097C801CB7AD9200F7FAF4 /* HZHttpHelper.m in Sources */,
 				25097C201CB79CF000F7FAF4 /* ViewController.m in Sources */,
 				25097C1D1CB79CF000F7FAF4 /* AppDelegate.m in Sources */,
 				25097C1A1CB79CF000F7FAF4 /* main.m in Sources */,

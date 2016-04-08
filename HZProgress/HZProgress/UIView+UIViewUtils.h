@@ -14,39 +14,33 @@
 
 
 @interface UIView (UIViewUtils)
-//- (void)showActivityViewAtCenter;
-//
-//- (void)showActivityViewAtCenter:(NSString*)indiTitle;
-//
-//- (void)hideActivityViewAtCenter;
-//
-//- (LoadingHUDView *)createActivityViewAtCenter:(UIActivityIndicatorViewStyle)style;
-//
-//- (LoadingHUDView *)createActivityViewAtCenter:(UIActivityIndicatorViewStyle)style title:(NSString*)indiTitle;
-//
-//- (LoadingHUDView *)getActivityViewAtCenter;
-//
-//
-//
-//- (void)showTipViewAtCenter:(NSString*)indiTitle posY:(CGFloat)y;
-//
-//- (void)showTipViewAtCenter:(NSString*)indiTitle;
-//- (void)showTipViewAtCenter:(NSString*)indiTitle timer:(int)aTimer;
-//- (void)showTipViewAtCenter:(NSString *)indiTitle message:(NSString *)message posY:(CGFloat)y;
-//- (void)showTipViewAtCenter:(NSString *)indiTitle message:(NSString *)message;
-//
-//- (void)hideTipView;
-//
-//- (BBTipView *)getTipView;
 
+/**
+ *  显示错误信息带角标提示
+ */
+-(void)showHUDIndicatorViewSuccessAtCenter:(NSString *)success;
 
+/**
+ *  显示正确提示带角标提示
+ */
+-(void)showHUDIndicatorViewErrorAtCenter:(NSString *)error;
 
+/**
+ *  网络请求相关提示
+ *
+ *  @param indiTitle 提示标题
+ */
 - (void)showHUDIndicatorViewAtCenter:(NSString *)indiTitle;
+/**
+ *  隐藏弹层
+ */
 - (void)hideHUDIndicatorViewAtCenter;
+/*
 - (void)showHUDIndicatorViewAtCenter:(NSString *)indiTitle yOffset:(CGFloat)y;
-- (MBProgressHUD *)createHUDIndicatorViewAtCenter:(NSString *)indiTitle yOffset:(CGFloat)y;
+- (MBProgressHUD *)createHUDIndicatorViewAtCenter:(NSString *)indiTitle icon:(NSString *)icon yOffset:(CGFloat)y;
 - (MBProgressHUD *)getHUDIndicatorViewAtCenter;
 
 
 - (UIView *)viewWithTagNotDeepCounting:(NSInteger)tag;
+ */
 @end

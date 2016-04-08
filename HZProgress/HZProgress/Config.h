@@ -8,6 +8,8 @@
 
 #ifndef Config_h
 #define Config_h
+
 #define hudViewTag                     0x98751235
+#import "AFNetworking.h"
 
 #endif /* Config_h */
