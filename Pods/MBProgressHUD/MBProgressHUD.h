@@ -45,7 +45,10 @@ typedef NS_ENUM(NSInteger, MBProgressHUDMode) {
 	/** Shows a custom view */
 	MBProgressHUDModeCustomView,
 	/** Shows only labels */
-	MBProgressHUDModeText
+	MBProgressHUDModeText,
+    
+    //    add by gjf
+    MBProgressHUD25X
 };
 
 typedef NS_ENUM(NSInteger, MBProgressHUDAnimation) {
@@ -53,8 +56,10 @@ typedef NS_ENUM(NSInteger, MBProgressHUDAnimation) {
 	MBProgressHUDAnimationFade,
 	/** Opacity + scale animation */
 	MBProgressHUDAnimationZoom,
+    
 	MBProgressHUDAnimationZoomOut = MBProgressHUDAnimationZoom,
-	MBProgressHUDAnimationZoomIn
+	
+    MBProgressHUDAnimationZoomIn
 };
 
 

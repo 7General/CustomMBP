@@ -113,7 +113,7 @@
         hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@", icon]]];
         hud.mode = MBProgressHUDModeCustomView;
     }else {
-        hud.mode = MBProgressHUDModeText;
+        //hud.mode = MBProgressHUDModeText;
     }
     
     [self addSubview:hud];

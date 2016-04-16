@@ -167,7 +167,10 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	if (self) {
 		// Set default values for properties
 		self.animationType = MBProgressHUDAnimationFade;
-		self.mode = MBProgressHUDModeIndeterminate;
+//		self.mode = MBProgressHUDModeIndeterminate;
+        self.mode = MBProgressHUD25X;
+        
+        
 		self.labelText = nil;
 		self.detailsLabelText = nil;
 		self.opacity = 0.8f;
@@ -519,6 +522,27 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		[indicator removeFromSuperview];
 		self.indicator = nil;
 	}
+    
+    else if(mode == MBProgressHUD25X){
+        [indicator removeFromSuperview];
+        self.indicator = MB_AUTORELEASE([[UIImageView alloc] initWithImage:[UIImage imageNamed:@"jiazai_"]]);
+        self.indicator.backgroundColor = [UIColor clearColor];
+        [self addSubview:indicator];
+        
+        CABasicAnimation* rotationAnimation;
+        rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+        rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 ];
+        [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        rotationAnimation.duration = 2;
+        rotationAnimation.RepeatCount = 1000;
+        rotationAnimation.cumulative = NO;
+        rotationAnimation.removedOnCompletion = NO;
+        rotationAnimation.fillMode = kCAFillModeForwards;
+        [self.indicator.layer addAnimation:rotationAnimation forKey:@"Rotation"];
+        
+    }
+    
+    
 }
 
 #pragma mark - Layout
@@ -532,7 +556,73 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		self.frame = parent.bounds;
 	}
 	CGRect bounds = self.bounds;
-	
+    if(mode == MBProgressHUD25X){
+        
+        CGFloat maxWidth = bounds.size.width;
+        CGSize totalSize = CGSizeZero;
+        
+        CGRect indicatorF = indicator.bounds;
+        indicatorF.size.width = MIN(22, maxWidth);
+        indicatorF.size.height = 22;
+        
+        totalSize.width = indicatorF.size.width;
+        totalSize.height = indicatorF.size.height;
+        
+        CGSize labelSize = [label.text sizeWithFont:label.font];
+        labelSize.width = MIN(labelSize.width, maxWidth);
+        totalSize.width += labelSize.width;
+        totalSize.width += 20;
+        
+        CGFloat remainingHeight = bounds.size.height - totalSize.height - kPadding - 4 * margin;
+        CGSize maxSize = CGSizeMake(maxWidth, remainingHeight);
+        CGSize detailsLabelSize = [detailsLabel.text sizeWithFont:detailsLabel.font
+                                                constrainedToSize:maxSize lineBreakMode:detailsLabel.lineBreakMode];
+        totalSize.width = MAX(totalSize.width, detailsLabelSize.width);
+        totalSize.height += detailsLabelSize.height;
+        totalSize.height += 2 * margin;
+        
+        // Position elements
+        CGFloat yPos = roundf(((bounds.size.height - totalSize.height) / 2)) + margin + yOffset;
+        CGFloat xPos = xOffset;
+        indicatorF.origin.y = yPos;
+        indicatorF.origin.x = roundf((bounds.size.width - 22 - labelSize.width -20) / 2) + xPos;
+        indicatorF.size.width=22;
+        indicatorF.size.height=22;
+        indicator.frame = indicatorF;
+        
+        
+        CGRect labelF;
+        labelF.origin.y = indicator.frame.origin.y+3;
+        labelF.origin.x = roundf((bounds.size.width - labelSize.width +20) / 2) + xPos;
+        labelF.size = labelSize;
+        label.frame = labelF;
+        CGRect detailsLabelF;
+        detailsLabelF.origin.y = yPos;
+        detailsLabelF.origin.x = roundf((bounds.size.width - detailsLabelSize.width) / 2) + xPos;
+        detailsLabelF.size = detailsLabelSize;
+        detailsLabel.frame = detailsLabelF;
+        
+        if (square) {
+            CGFloat max = MAX(totalSize.width, totalSize.height);
+            if (max <= bounds.size.width - 2 * margin) {
+                totalSize.width = max;
+            }
+            if (max <= bounds.size.height - 2 * margin) {
+                totalSize.height = max;
+            }
+        }
+        if (totalSize.width < minSize.width) {
+            totalSize.width = minSize.width;
+        }
+        if (totalSize.height < minSize.height) {
+            totalSize.height = minSize.height;
+        }
+        totalSize.width += 22;
+        totalSize.height =40;
+//        self.size = totalSize;
+        size = totalSize;
+        
+    } else {
 	// Determine the total width and height needed
 	CGFloat maxWidth = bounds.size.width - 4 * margin;
 	CGSize totalSize = CGSizeZero;
@@ -607,6 +697,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	}
 	
 	size = totalSize;
+    }
 }
 
 #pragma mark BG Drawing
