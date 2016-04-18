@@ -61,6 +61,7 @@
 
 -(void)showClick {
 
+
     [self.view showHUDIndicatorViewAtCenter:(@"Loading...")];
     NSDictionary *parameters = @{@"username": @"123", @"password": @"456"};
     [[HZHttpHelper defaultManager] autoRequestHttpWithNetStateWithString:@"login" parameters:parameters success:^(id responseObject) {
